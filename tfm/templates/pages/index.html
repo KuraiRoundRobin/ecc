@@ -9,7 +9,7 @@
 
 		<link rel="stylesheet" href="{% static 'revealjs/dist/reset.css' %}">
 		<link rel="stylesheet" href="{% static 'revealjs/dist/reveal.css' %}">
-		<link rel="stylesheet" href="{% static 'revealjs/dist/theme/black.css' %}">
+		<link rel="stylesheet" href="{% static 'revealjs/dist/theme/white.css' %}">
 
 		<!-- Theme used for syntax highlighted code -->
 		<link rel="stylesheet" href="{% static 'revealjs/plugin/highlight/monokai.css' %}" />
@@ -17,9 +17,17 @@
 	<body>
 		<div class="reveal">
 			<div class="slides">
-        <section><h1>Slide 1 test</h1><img src="data:image/png;base64,{{ graph1|safe }}" id="g1" height="500" width="500"></section>
-				<section><h1>Slide 2 test</h1><img src="data:image/png;base64,{{ graph2|safe }}" id="g2" height="500" width="500"></section>
-				<section><h1>Slide 3 test</h1><img src="data:image/png;base64,{{ graph3|safe }}" id="g2" height="500" width="500"></section>
+        <h2>Elliptic Curve Cryptography</h2>
+        <section data-transition="fade"><img src="data:image/png;base64,{{ graph0|safe }}" height="500" width="500"></section>
+				<section data-transition="fade"><img src="data:image/png;base64,{{ graph1|safe }}" height="500" width="500"></section>
+				<section data-transition="fade"><img src="data:image/png;base64,{{ graph2|safe }}" height="500" width="500"></section>
+				<section data-transition="fade"><img src="data:image/png;base64,{{ graph3|safe }}" height="500" width="500"></section>
+				<section data-transition="fade"><img src="data:image/png;base64,{{ graph4|safe }}" height="500" width="500"></section>
+				<section data-transition="fade"><img src="data:image/png;base64,{{ graph5|safe }}" height="500" width="500"></section>
+				<section data-transition="fade"><img src="data:image/png;base64,{{ graph_second_1|safe }}" height="500" width="500"></section>
+				<section data-transition="fade"><img src="data:image/png;base64,{{ graph_second_2|safe }}" height="500" width="500"></section>
+				<section data-transition="fade"><img src="data:image/png;base64,{{ graph_second_3|safe }}" height="500" width="500"></section>
+				<section data-transition="fade"><img src="data:image/png;base64,{{ graph_second_4|safe }}" height="500" width="500"></section>
 			</div>
 		</div>
 

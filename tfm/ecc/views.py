@@ -18,27 +18,76 @@ def plot_graph(a=-3, b=-5):
     ylist = y.ravel()
     elliptic_curve = pow(y, 2) - pow(x, 3) - x * a + b
     plt.contour(xlist, ylist, elliptic_curve, [0])
-    randmid = random.randint(30, 70)
-    plt.plot([-1.5, 5], [-1, 8], color="c", linewidth=1)  # plot([x1,x2,x3,...],[y1,y2,y3,...])
-    plt.plot([xlist[randmid], 5], [ylist[randmid], 5], color="m", linewidth=1)
-    plt.annotate('$O+G+T=OGT$', xy=(2, 1), xytext=(3, 1.5), arrowprops=dict(facecolor='black', shrink=0.05))
-
+    plt.gca().spines[:].set_position('center')
     plt.grid(True)
+    uri0 = render_chart(plt)
+    plt.text(-2.5, 2.25, "A", weight="bold")
+    plt.plot(-1.9, 2, marker="o", markersize=5, markeredgecolor="black", markerfacecolor="black")
     uri1 = render_chart(plt)
-    plt.annotate('$O+G+T=OGT2$', xy=(2, 1), xytext=(2, 5.5), arrowprops=dict(facecolor='red', shrink=0.05))
+    plt.text(-0.3, 2.7, "B", weight="bold")
+    plt.plot(-0.25, 2.4, marker="o", markersize=5, markeredgecolor="black", markerfacecolor="black")
     uri2 = render_chart(plt)
-    plt.annotate('$O+G+T=OGT3$', xy=(2, 1), xytext=(1, 2.5), arrowprops=dict(facecolor='blue', shrink=0.05))
-    #to delete annotations in future iterations
-    #ann = plt.annotate
-    #ann.remove()
+    point1 = [-1.9, 2]
+    point2 = [2.1, 2.8]
+    x_values = [point1[0], point2[0]]
+    y_values = [point1[1], point2[1]]
+    plt.plot(x_values, y_values, 'red', linestyle="-")
+    plt.plot(2.1, 2.8, marker="x", markersize=10, markeredgecolor="red", markerfacecolor="red")
     uri3 = render_chart(plt)
+    plt.text(2.5, 2.8, "P", weight="bold", color="red")
+    plt.plot(2.1, 2.8, marker="o", markersize=5, markeredgecolor="red", markerfacecolor="red")
+    uri4 = render_chart(plt)
+    plt.plot(x_values, y_values, 'black', linestyle="-")
+    plt.plot(2.1, 2.8, marker="x", markersize=5, markeredgecolor="black", markerfacecolor="black")
+    point3 = [2.1, 2.8]
+    point4 = [2.1, -2.8]
+    x_values = [point3[0], point4[0]]
+    y_values = [point3[1], point4[1]]
+    plt.plot(x_values, y_values, 'blue', linestyle="--")
+    plt.text(2.5, -2.8, "P' = A + B", weight="bold", color="blue")
+    plt.plot(2.1, -2.8, marker="o", markersize=5, markeredgecolor="blue", markerfacecolor="blue")
+    uri5 = render_chart(plt)
     plt.close()
-    return {"graph1": uri1, "graph2": uri2, "graph3": uri3}
+    return {"graph0": uri0, "graph1": uri1, "graph2": uri2, "graph3": uri3, "graph4": uri4, "graph5": uri5}
+
+
+def second_step_graph(a=-3, b=-5):
+    y, x = np.ogrid[-5:5:100j, -5:5:100j]
+    xlist = x.ravel()
+    ylist = y.ravel()
+    elliptic_curve = pow(y, 2) - pow(x, 3) - x * a + b
+    plt.contour(xlist, ylist, elliptic_curve, [0])
+    plt.gca().spines[:].set_position('center')
+    plt.grid(False)
+    plt.text(2.5, -2.8, "A", weight="bold", color="blue")
+    plt.plot(2.1, -2.8, marker="o", markersize=5, markeredgecolor="blue", markerfacecolor="blue")
+    uri1 = render_chart(plt)
+    plt.text(-2.8, 0.5, "B", weight="bold", color="blue")
+    plt.plot(-2.3, 0, marker="o", markersize=5, markeredgecolor="blue", markerfacecolor="blue")
+    uri2 = render_chart(plt)
+    point1 = [2.1, -2.8]
+    point2 = [-2.3, 0]
+    x_values = [point1[0], point2[0]]
+    y_values = [point1[1], point2[1]]
+    plt.plot(x_values, y_values, 'red', linestyle="-")
+    plt.plot(0.6, -1.8, marker="x", markersize=10, markeredgecolor="red", markerfacecolor="red")
+    uri3 = render_chart(plt)
+    point3 = [0.6, -1.8]
+    point4 = [0.6, 1.8]
+    x_values = [point3[0], point4[0]]
+    y_values = [point3[1], point4[1]]
+    plt.plot(x_values, y_values, 'blue', linestyle="--")
+    plt.text(0.2, 2.5, "P' = A + B", weight="bold", color="blue")
+    plt.plot(0.6, 1.85, marker="o", markersize=5, markeredgecolor="blue", markerfacecolor="blue")
+    uri4 = render_chart(plt)
+
+    plt.close()
+    return {"graph_second_1": uri1, "graph_second_2": uri2, "graph_second_3": uri3, "graph_second_4": uri4}
 
 
 def render_chart(matplot):
     buff = io.BytesIO()
-    matplot.savefig(buff, format="png")
+    matplot.savefig(buff, format="png", transparent=True)
     buff.seek(0)
     graph = base64.b64encode(buff.getvalue())
     buff.close()
@@ -47,6 +96,7 @@ def render_chart(matplot):
 
 def main(request):
     graphs = plot_graph()
+    graphs.update(second_step_graph())
     return render(request, "pages/index.html", graphs)
 
 
