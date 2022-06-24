@@ -17,17 +17,70 @@
 	<body>
 		<div class="reveal">
 			<div class="slides">
-        <h2>Elliptic Curve Cryptography</h2>
-        <section data-transition="fade"><img src="data:image/png;base64,{{ graph0|safe }}" height="500" width="500"></section>
-				<section data-transition="fade"><img src="data:image/png;base64,{{ graph1|safe }}" height="500" width="500"></section>
-				<section data-transition="fade"><img src="data:image/png;base64,{{ graph2|safe }}" height="500" width="500"></section>
-				<section data-transition="fade"><img src="data:image/png;base64,{{ graph3|safe }}" height="500" width="500"></section>
-				<section data-transition="fade"><img src="data:image/png;base64,{{ graph4|safe }}" height="500" width="500"></section>
-				<section data-transition="fade"><img src="data:image/png;base64,{{ graph5|safe }}" height="500" width="500"></section>
-				<section data-transition="fade"><img src="data:image/png;base64,{{ graph_second_1|safe }}" height="500" width="500"></section>
-				<section data-transition="fade"><img src="data:image/png;base64,{{ graph_second_2|safe }}" height="500" width="500"></section>
-				<section data-transition="fade"><img src="data:image/png;base64,{{ graph_second_3|safe }}" height="500" width="500"></section>
-				<section data-transition="fade"><img src="data:image/png;base64,{{ graph_second_4|safe }}" height="500" width="500"></section>
+        <h3>Elliptic Curve Cryptography</h3>
+        <section data-transition="fade">
+          <p> Elliptic Curve Cryptography <b>(ECC)</b> is an approach to <b>public-key cryptography</b> </p>
+          <p>It is based on the algebraic structure of <b>elliptic curves</b> defined by the formula:</p>
+          <p>  \[\begin{aligned}
+                \ y^{2} = x^{3} + ax + b
+                \end{aligned} \]
+          </p>
+        </section>
+        <section data-transition="fade">
+          <p> Public-key cryptograpy is based in <b>Public</b> and <b>Private</b> keys</p>
+          <p> ECC <b>public key</b> is a point in the curve</p>
+          <p> ECC <b>private key</b> is an integer</p>
+        </section>
+        <section data-transition="fade">
+          <p> Let's plot the following curve to explain step by step how to get to these keys</p>
+          <p>  \[\begin{aligned}
+                \ y^{2} = x^{3} - 3x - 5
+                \end{aligned} \]
+          </p>
+        </section>
+        <section data-transition="fade">
+          <img src="data:image/png;base64,{{ graph0|safe }}" height="700" width="700">
+        </section>
+				<section data-transition="fade">
+          <img src="data:image/png;base64,{{ graph1|safe }}" height="700" width="700">
+        </section>
+				<section data-transition="fade"><img src="data:image/png;base64,{{ graph2|safe }}" height="700" width="700"></section>
+				<section data-transition="fade"><img src="data:image/png;base64,{{ graph3|safe }}" height="700" width="700"></section>
+				<section data-transition="fade"><img src="data:image/png;base64,{{ graph4|safe }}" height="700" width="700"></section>
+				<section data-transition="fade"><img src="data:image/png;base64,{{ graph5|safe }}" height="700" width="700"></section>
+        <section data-transition="fade">
+          <p> This point P' is defined as</p>
+          <p>  <b>P' = A + B </b></p>
+          <p> Point <b>P'</b> becomes point <b>A</b> for the next iteration </p>
+        </section>
+        <section data-transition="fade"><img src="data:image/png;base64,{{ graph_second_1|safe }}" height="700" width="700"></section>
+				<section data-transition="fade"><img src="data:image/png;base64,{{ graph_second_2|safe }}" height="700" width="700"></section>
+				<section data-transition="fade"><img src="data:image/png;base64,{{ graph_second_3|safe }}" height="700" width="700"></section>
+				<section data-transition="fade"><img src="data:image/png;base64,{{ graph_second_4|safe }}" height="700" width="700"></section>
+				<section data-transition="fade">
+          <p> This process is repeated <b>N</b> times</p>
+          <p> The final <b>P'</b> point is the <b>public key</b> </p>
+          <p> The times we have jumped to get to the final point is <b>N</b>, the <b>private key</b> </p>
+        </section>
+        <section data-transition="fade">
+          <p> Let's try another approach of the same procedure</p>
+          <p> Since sometimes it's difficult to pick 2 different points in the curve</p>
+        </section>
+        <section data-transition="fade">
+          <p> We can pick a single point <b>P</b> and pick 2 points extremely close to it</p>
+          <p> This way we can understand better how do we get to the private key</p>
+        </section>
+        <section data-transition="fade">
+          <p> We will plot the same curve as before:</p>
+          <p>  \[\begin{aligned}
+                \ y^{2} = x^{3} - 3x - 5
+                \end{aligned} \]
+          </p>
+        </section>
+        <section data-transition="fade"><img src="data:image/png;base64,{{ graph_third_1|safe }}" height="700" width="700"></section>
+				<section data-transition="fade"><img src="data:image/png;base64,{{ graph_third_2|safe }}" height="700" width="700"></section>
+				<section data-transition="fade"><img src="data:image/png;base64,{{ graph_third_3|safe }}" height="700" width="700"></section>
+				<section data-transition="fade"><img src="data:image/png;base64,{{ graph_third_4|safe }}" height="700" width="700"></section>
 			</div>
 		</div>
 
@@ -35,6 +88,7 @@
     <script src="{% static 'revealjs/plugin/notes/notes.js' %}"></script>
     <script src="{% static 'revealjs/plugin/markdown/markdown.js' %}"></script>
     <script src="{% static 'revealjs/plugin/highlight/highlight.js' %}"></script>
+    <script src="{% static 'revealjs/plugin/math/math.js' %}"></script>
 		<script>
 			// More info about initialization & config:
 			// - https://revealjs.com/initialization/
@@ -43,7 +97,7 @@
 				hash: true,
 
 				// Learn about plugins: https://revealjs.com/plugins/
-				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealMath.KaTeX ]
 			});
 		</script>
 	</body>
