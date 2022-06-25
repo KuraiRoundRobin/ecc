@@ -22,19 +22,21 @@
           <p> Elliptic Curve Cryptography <b>(ECC)</b> is an approach to <b>public-key cryptography</b> </p>
           <p>It is based on the algebraic structure of <b>elliptic curves</b> defined by the formula:</p>
           <p>  \[\begin{aligned}
-                \ y^{2} = x^{3} + ax + b
+                \tag{mod p} y^{2} = x^{3} + ax + b
                 \end{aligned} \]
           </p>
+          <p>on a <b>finite field</b> of integers <b>(mod p)</b></p>
+          <p>being p a prime > 3</p>
         </section>
         <section data-transition="fade">
-          <p> Public-key cryptograpy is based in <b>Public</b> and <b>Private</b> keys</p>
-          <p> ECC <b>public key</b> is a point in the curve</p>
-          <p> ECC <b>private key</b> is an integer</p>
+          <p> ECC <b>public key</b> is a <b>point</b> in the curve</p>
+          <p> ECC <b>private key</b> is an <b>integer</b></p>
+          <p> The <b>curve</b> and the starting point <b>P</b> are also <b>public information</b> agreed by the parts</p>
         </section>
         <section data-transition="fade">
-          <p> Let's plot the following curve to explain step by step how to get to these keys</p>
+          <p> Let's plot the following curve to explain step by step how to get to private key</p>
           <p>  \[\begin{aligned}
-                \ y^{2} = x^{3} - 3x - 5
+                \tag{mod 131} y^{2} = x^{3} - 3x - 5
                 \end{aligned} \]
           </p>
         </section>
@@ -56,22 +58,36 @@
         <section data-transition="fade"><img src="data:image/png;base64,{{ graph_second_1|safe }}" height="700" width="700"></section>
 				<section data-transition="fade"><img src="data:image/png;base64,{{ graph_second_2|safe }}" height="700" width="700"></section>
 				<section data-transition="fade"><img src="data:image/png;base64,{{ graph_second_3|safe }}" height="700" width="700"></section>
-				<section data-transition="fade"><img src="data:image/png;base64,{{ graph_second_4|safe }}" height="700" width="700"></section>
+        <section data-transition="fade"><img src="data:image/png;base64,{{ graph_second_4|safe }}" height="700" width="700"></section>
 				<section data-transition="fade">
           <p> This process is repeated <b>N</b> times</p>
           <p> The final <b>P'</b> point is the <b>public key</b> </p>
           <p> The times we have jumped to get to the final point is <b>N</b>, the <b>private key</b> </p>
         </section>
         <section data-transition="fade">
-          <p> Let's try another approach of the same procedure</p>
-          <p> Since sometimes it's difficult to pick 2 different points in the curve</p>
+          <p> In this simple example, the curve was</p>
+          <p>  \[\begin{aligned}
+                \tag{mod 131} y^{2} = x^{3} - 3x - 5
+                \end{aligned} \]
+          </p>
+          <p> Starting P point was <b>P = (-1.9, 2)</b> </p>
+          <p> Public key is <b>P' = (2.1, -2.8)</b></p>
+          <p> Private key is <b>N = 2</b>, since we jumped 2 times</p>
         </section>
         <section data-transition="fade">
-          <p> We can pick a single point <b>P</b> and pick 2 points extremely close to it</p>
-          <p> This way we can understand better how do we get to the private key</p>
+          <p><b>Important:</b></p>
+          <p> N should be a <b>huge</b> number, this is a simple example for learning purposes</p>
         </section>
         <section data-transition="fade">
-          <p> We will plot the same curve as before:</p>
+          <p> Picking different points in the curve could be tedious</p>
+          <p> But there is another approach</p>
+        </section>
+        <section data-transition="fade">
+          <p> We can use the starting agreed point <b>P</b> and later pick 2 points infinitely close to it</p>
+          <p> It will look like we have selected the point <b>P</b> 2 times as A and B </p>
+        </section>
+        <section data-transition="fade">
+          <p> We will plot the same curve as before to show this:</p>
           <p>  \[\begin{aligned}
                 \ y^{2} = x^{3} - 3x - 5
                 \end{aligned} \]
@@ -80,8 +96,26 @@
         <section data-transition="fade"><img src="data:image/png;base64,{{ graph_third_1|safe }}" height="700" width="700"></section>
 				<section data-transition="fade"><img src="data:image/png;base64,{{ graph_third_2|safe }}" height="700" width="700"></section>
 				<section data-transition="fade"><img src="data:image/png;base64,{{ graph_third_3|safe }}" height="700" width="700"></section>
-				<section data-transition="fade"><img src="data:image/png;base64,{{ graph_third_4|safe }}" height="700" width="700"></section>
-			</div>
+        <section data-transition="fade">
+          <p> Observe that <b>P' = P + P</b></p>
+          <p> So the new point P' is <b>2P</b></p>
+        </section>
+        <section data-transition="fade">
+          <p> Now we can add <b>2P + 2P</b> or <b>P + 2P</b>, etc.</p>
+          <p> There's no need to pick other points, we can combine those that we already have defined to reach <b>NP</b></p>
+        </section>
+        <section data-transition="fade"><img src="data:image/png;base64,{{ last_graph|safe }}" height="700" width="700"></section>
+        <section data-transition="fade">
+          <p> <b>NP = (-1.98, 1.8)</b></p>
+          <p> <b>(-1.98, 1.8)</b> is the <b>public key</b></p>
+          <p> <b>N</b> is the <b>private key</b></p>
+        </section>
+        <section data-transition="fade">
+          <p> Since we did the operations, we know that <b>N = 123123</b></p>
+          <p> But for an attacker it's difficult to find the value <b>N</b> from the public information available</p>
+          <p> This is known as the <b>ECC Discrete Logarithm Problem</b> and it provides <b>security</b> to the cryptosystem</p>
+        </section>
+      </div>
 		</div>
 
 		<script src="{% static 'revealjs/dist/reveal.js' %}"></script>
