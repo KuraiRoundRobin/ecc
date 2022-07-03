@@ -52,12 +52,13 @@ def plot_graph(a=-3, b=-5):
     plot_text.remove()
     plot_text2.remove()
 
-
+    ## New point
     plt.text(2.5, 2.8, "P", weight="bold", color="red")
     plt.plot(2.1, 2.8, marker="o", markersize=5, markeredgecolor="red", markerfacecolor="red")
     plot_text = plt.annotate(text="we can call this point P", xy=(2, 1.5), fontsize=10, color="blue")
     uri4 = render_chart(plt)
     plot_text.remove()
+
 
     plt.plot(x_values, y_values, 'black', linestyle="-")
     plt.plot(2.1, 2.8, marker="x", markersize=5, markeredgecolor="black", markerfacecolor="black")

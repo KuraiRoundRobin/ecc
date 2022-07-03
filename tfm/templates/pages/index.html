@@ -33,6 +33,9 @@
        text-align: center !important;
        vertical-align: middle;
      }
+     .second, .third, .fourth, .fifth, .sixth, .seventh {
+       display: none;
+     }
     </style>
 	</head>
 	<body>
@@ -140,20 +143,13 @@
           <p> This is known as the <b>ECC Discrete Logarithm Problem</b> and it provides <b>security</b> to the cryptosystem</p>
         </section>
         <section data-transition="fade">
-          <p> To sum up, even if we know:</p>
-          <p> Elliptic Curve</p>
-          <p> Initial point</p>
-          <p> Final point</p>
-          <p> Private key could have several values and this provides <b>security</b> to the criptosystem</p>
-        </section>
-        <section data-transition="fade">
           <p> See in the next slide an example where given </p>
           <p> Same <span style="color: blue">Initial Point</span></p>
           <p> Same <span style="color: green">Final Point</span></p>
           <p>iterations to get to the final point were different</p>
           <p>So it is the <b>Private Key</b></p>
         </section>
-        <section data-transition="fade">
+        <section data-transition="fade" data-state="table">
           <table id="tabla">
             <tr>
               <td></td>
@@ -161,45 +157,56 @@
               <td></td>
             </tr>
             <tr>
-              <td class="align">Initial</td>
-              <td class="align">1</td>
-              <td class="align">2</td>
-              <td class="align">3</td>
-              <td class="align">4</td>
-              <td class="align">5</td>
-              <td class="align">Private Key</td>
+              <td class="align first">Initial</td>
+              <td class="align second" style="width: 120px">1</td>
+              <td class="align third" style="width: 120px">2</td>
+              <td class="align fourth" style="width: 120px">3</td>
+              <td class="align fifth" style="width: 120px">4</td>
+              <td class="align sixth" style="width: 120px">5</td>
+              <td class="align seventh">Private Key</td>
             </tr>
             <tr>
-              <td><img class="initial" src="data:image/png;base64,{{ graph_third_1|safe }}" height="120" width="120" style="margin: 0;"></td>
-              <td><img class="selected"  src="data:image/png;base64,{{ last_graph|safe }}" height="120" width="120" style="margin: 0;"></td>
+              <td><div class="first"><img class="initial" src="data:image/png;base64,{{ graph_third_1|safe }}" height="120" width="120" style="margin: 0;"></div></td>
+              <td><div class="second"><img class="selected"  src="data:image/png;base64,{{ last_graph|safe }}" height="120" width="120" style="margin: 0;"></div></td>
               <td></td>
               <td></td>
               <td></td>
               <td></td>
-              <td class="align">1</td>
+              <td class="align seventh">1</td>
             </tr>
             <tr>
-              <td><img class="initial" src="data:image/png;base64,{{ graph_third_1|safe }}" height="120" width="120" style="margin: 0;"></td>
-              <td><img src="data:image/png;base64,{{ graph_second_1|safe }}" height="120" width="120" style="margin: 0;"></td>
-              <td><img src="data:image/png;base64,{{ graph_second_2|safe }}" height="120" width="120" style="margin: 0;"></td>
-              <td><img src="data:image/png;base64,{{ graph_second_3|safe }}" height="120" width="120" style="margin: 0;"></td>
-              <td><img src="data:image/png;base64,{{ graph_second_3|safe }}" height="120" width="120" style="margin: 0;"></td>
-              <td><img class="selected" src="data:image/png;base64,{{ last_graph|safe }}" height="120" width="120" style="margin: 0;"></td>
-              <td class="align">5</td>
+              <td class="first"><img class="initial" src="data:image/png;base64,{{ graph_third_1|safe }}" height="120" width="120" style="margin: 0;"></td>
+              <td class="second"><img src="data:image/png;base64,{{ graph_second_1|safe }}" height="120" width="120" style="margin: 0;"></td>
+              <td class="third"><img src="data:image/png;base64,{{ graph_second_2|safe }}" height="120" width="120" style="margin: 0;"></td>
+              <td class="fourth"><img src="data:image/png;base64,{{ graph_second_3|safe }}" height="120" width="120" style="margin: 0;"></td>
+              <td class="fifth"><img src="data:image/png;base64,{{ graph_second_3|safe }}" height="120" width="120" style="margin: 0;"></td>
+              <td class="sixth"><img class="selected" src="data:image/png;base64,{{ last_graph|safe }}" height="120" width="120" style="margin: 0;"></td>
+              <td class="align seventh">5</td>
           </tr>
             <tr>
-              <td><img class="initial" src="data:image/png;base64,{{ graph_third_1|safe }}" height="120" width="120" style="margin: 0;"></td>
-              <td><img src="data:image/png;base64,{{ graph_second_1|safe }}" height="120" width="120" style="margin: 0;"></td>
-              <td><img src="data:image/png;base64,{{ graph_second_2|safe }}" height="120" width="120" style="margin: 0;"></td>
-              <td><img src="data:image/png;base64,{{ graph_second_3|safe }}" height="120" width="120" style="margin: 0;"></td>
-              <td><img class="selected" src="data:image/png;base64,{{ last_graph|safe }}" height="120" width="120" style="margin: 0;"></td>
-              <td></td>
-              <td class="align">4</td>
+              <td class="first"><img class="initial" src="data:image/png;base64,{{ graph_third_1|safe }}" height="120" width="120" style="margin: 0;"></td>
+              <td class="second"><img src="data:image/png;base64,{{ graph_second_1|safe }}" height="120" width="120" style="margin: 0;"></td>
+              <td class="third"><img src="data:image/png;base64,{{ graph_second_2|safe }}" height="120" width="120" style="margin: 0;"></td>
+              <td class="fourth"><img src="data:image/png;base64,{{ graph_second_3|safe }}" height="120" width="120" style="margin: 0;"></td>
+              <td class="fifth"><img class="selected" src="data:image/png;base64,{{ last_graph|safe }}" height="120" width="120" style="margin: 0;"></td>
+              <td class="sixth"></td>
+              <td class="align seventh">4</td>
             </tr>
           </table>
         </section>
+        <section data-transition="fade">
+          <p> To sum up, even knowing:</p>
+          <p> Elliptic Curve</p>
+          <p> Initial point</p>
+          <p> Final point</p>
+          <p> Private key could have several values and this provides <b>security</b> to the cryptosystem</p>
+        </section>
+        <section data-transition="fade">
+          <p> Thank you for your time</p>
+        </section>
       </div>
 		</div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 		<script src="{% static 'revealjs/dist/reveal.js' %}"></script>
     <script src="{% static 'revealjs/plugin/notes/notes.js' %}"></script>
     <script src="{% static 'revealjs/plugin/markdown/markdown.js' %}"></script>
@@ -211,6 +218,38 @@
 				// Learn about plugins: https://revealjs.com/plugins/
 				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealMath.KaTeX ]
 			});
+      Reveal.addEventListener('table', function(){
+        setTimeout(function (){
+        $('.second').each(function (fadeInDiv){
+          $(this).delay(fadeInDiv * 500).fadeIn(1000);
+        });
+        },2000);
+        setTimeout(function (){
+        $('.third').each(function (fadeInDiv){
+          $(this).delay(fadeInDiv * 500).fadeIn(1000);
+        });
+        },4000);
+        setTimeout(function (){
+        $('.fourth').each(function (fadeInDiv){
+          $(this).delay(fadeInDiv * 500).fadeIn(1000);
+        });
+        },6000);
+        setTimeout(function (){
+        $('.fifth').each(function (fadeInDiv){
+          $(this).delay(fadeInDiv * 500).fadeIn(1000);
+        });
+        },8000);
+        setTimeout(function (){
+        $('.sixth').each(function (fadeInDiv){
+          $(this).delay(fadeInDiv * 500).fadeIn(1000);
+        });
+        },10000);
+        setTimeout(function (){
+        $('.seventh').each(function (fadeInDiv){
+          $(this).delay(fadeInDiv * 500).fadeIn(1000);
+        });
+        },12000);
+      });
 		</script>
 	</body>
 </html>
