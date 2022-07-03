@@ -4,15 +4,36 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-
-		<title>reveal.js</title>
-
+		<title>ECC step by step</title>
 		<link rel="stylesheet" href="{% static 'revealjs/dist/reset.css' %}">
 		<link rel="stylesheet" href="{% static 'revealjs/dist/reveal.css' %}">
 		<link rel="stylesheet" href="{% static 'revealjs/dist/theme/white.css' %}">
-
 		<!-- Theme used for syntax highlighted code -->
 		<link rel="stylesheet" href="{% static 'revealjs/plugin/highlight/monokai.css' %}" />
+    <style>
+      #tabla {
+        border-collapse: collapse;
+        border-spacing: 0;
+      }
+      #tabla td {
+        margin: 0;
+        padding: 0;
+      }
+     .selected {
+        border-style: solid;
+        border-color: green;
+        border-width: 2px;
+      }
+     .initial {
+        border-style: solid;
+        border-color: blue;
+        border-width: 2px;
+      }
+     .align {
+       text-align: center !important;
+       vertical-align: middle;
+     }
+    </style>
 	</head>
 	<body>
 		<div class="reveal">
@@ -118,21 +139,75 @@
           <p> But for an attacker it's difficult to find the value <b>N</b> from the public information available</p>
           <p> This is known as the <b>ECC Discrete Logarithm Problem</b> and it provides <b>security</b> to the cryptosystem</p>
         </section>
+        <section data-transition="fade">
+          <p> To sum up, even if we know:</p>
+          <p> Elliptic Curve</p>
+          <p> Initial point</p>
+          <p> Final point</p>
+          <p> Private key could have several values and this provides <b>security</b> to the criptosystem</p>
+        </section>
+        <section data-transition="fade">
+          <p> See in the next slide an example where given </p>
+          <p> Same <span style="color: blue">Initial Point</span></p>
+          <p> Same <span style="color: green">Final Point</span></p>
+          <p>iterations to get to the final point were different</p>
+          <p>So it is the <b>Private Key</b></p>
+        </section>
+        <section data-transition="fade">
+          <table id="tabla">
+            <tr>
+              <td></td>
+              <td class="align" colspan="5">Iterations</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td class="align">Initial</td>
+              <td class="align">1</td>
+              <td class="align">2</td>
+              <td class="align">3</td>
+              <td class="align">4</td>
+              <td class="align">5</td>
+              <td class="align">Private Key</td>
+            </tr>
+            <tr>
+              <td><img class="initial" src="data:image/png;base64,{{ graph_third_1|safe }}" height="120" width="120" style="margin: 0;"></td>
+              <td><img class="selected"  src="data:image/png;base64,{{ last_graph|safe }}" height="120" width="120" style="margin: 0;"></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td class="align">1</td>
+            </tr>
+            <tr>
+              <td><img class="initial" src="data:image/png;base64,{{ graph_third_1|safe }}" height="120" width="120" style="margin: 0;"></td>
+              <td><img src="data:image/png;base64,{{ graph_second_1|safe }}" height="120" width="120" style="margin: 0;"></td>
+              <td><img src="data:image/png;base64,{{ graph_second_2|safe }}" height="120" width="120" style="margin: 0;"></td>
+              <td><img src="data:image/png;base64,{{ graph_second_3|safe }}" height="120" width="120" style="margin: 0;"></td>
+              <td><img src="data:image/png;base64,{{ graph_second_3|safe }}" height="120" width="120" style="margin: 0;"></td>
+              <td><img class="selected" src="data:image/png;base64,{{ last_graph|safe }}" height="120" width="120" style="margin: 0;"></td>
+              <td class="align">5</td>
+          </tr>
+            <tr>
+              <td><img class="initial" src="data:image/png;base64,{{ graph_third_1|safe }}" height="120" width="120" style="margin: 0;"></td>
+              <td><img src="data:image/png;base64,{{ graph_second_1|safe }}" height="120" width="120" style="margin: 0;"></td>
+              <td><img src="data:image/png;base64,{{ graph_second_2|safe }}" height="120" width="120" style="margin: 0;"></td>
+              <td><img src="data:image/png;base64,{{ graph_second_3|safe }}" height="120" width="120" style="margin: 0;"></td>
+              <td><img class="selected" src="data:image/png;base64,{{ last_graph|safe }}" height="120" width="120" style="margin: 0;"></td>
+              <td></td>
+              <td class="align">4</td>
+            </tr>
+          </table>
+        </section>
       </div>
 		</div>
-
 		<script src="{% static 'revealjs/dist/reveal.js' %}"></script>
     <script src="{% static 'revealjs/plugin/notes/notes.js' %}"></script>
     <script src="{% static 'revealjs/plugin/markdown/markdown.js' %}"></script>
     <script src="{% static 'revealjs/plugin/highlight/highlight.js' %}"></script>
     <script src="{% static 'revealjs/plugin/math/math.js' %}"></script>
 		<script>
-			// More info about initialization & config:
-			// - https://revealjs.com/initialization/
-			// - https://revealjs.com/config/
 			Reveal.initialize({
 				hash: true,
-
 				// Learn about plugins: https://revealjs.com/plugins/
 				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealMath.KaTeX ]
 			});
