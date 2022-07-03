@@ -20,7 +20,9 @@
         <h3>Elliptic Curve Cryptography</h3>
         <section data-transition="fade">
           <p> Elliptic Curve Cryptography <b>(ECC)</b> is an approach to <b>public-key cryptography</b> </p>
-          <p>It is based on the algebraic structure of <b>elliptic curves</b> defined by the formula:</p>
+        </section>
+        <section data-transition="fade">
+          <p>ECC is based on the algebraic structure of <b>elliptic curves</b> defined by the formula:</p>
           <p>  \[\begin{aligned}
                 \tag{mod p} y^{2} = x^{3} + ax + b
                 \end{aligned} \]
@@ -36,9 +38,10 @@
         <section data-transition="fade">
           <p> Let's plot the following curve to explain step by step how to get to private key</p>
           <p>  \[\begin{aligned}
-                \tag{mod 131} y^{2} = x^{3} - 3x - 5
+                \ y^{2} = x^{3} - 3x - 5
                 \end{aligned} \]
           </p>
+          <p>Consider the finite field of integers (mod p) a very big number so the process is easier to understand</p>
         </section>
         <section data-transition="fade">
           <img src="data:image/png;base64,{{ graph0|safe }}" height="700" width="700">
@@ -67,7 +70,7 @@
         <section data-transition="fade">
           <p> In this simple example, the curve was</p>
           <p>  \[\begin{aligned}
-                \tag{mod 131} y^{2} = x^{3} - 3x - 5
+                \ y^{2} = x^{3} - 3x - 5
                 \end{aligned} \]
           </p>
           <p> Starting P point was <b>P = (-1.9, 2)</b> </p>
