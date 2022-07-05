@@ -43,6 +43,14 @@
 			<div class="slides">
         <h3>Elliptic Curve Cryptography</h3>
         <section data-transition="fade">
+          <p> Welcome to <b>Eliptic Curve Cryptography</b> step by step</p>
+          <p> Use your keyboard arrows or click at the bottom right <span style="color: blue"> '<' </span> or <span style="color: blue"> '>' </span> to navigate </p>
+        </section>
+        <section data-transition="fade">
+          <p> This project is under construction</p>
+          <p> The main goal is to bring the <b>basics of Elliptic Curve Cryptography</b> to different profiles </p>
+        </section>
+        <section data-transition="fade">
           <p> Elliptic Curve Cryptography <b>(ECC)</b> is an approach to <b>public-key cryptography</b> </p>
         </section>
         <section data-transition="fade">
@@ -55,17 +63,20 @@
           <p>being p a prime > 3</p>
         </section>
         <section data-transition="fade">
+          <p> To keep it simple, we are going to ignore the <b>modulo (mod p)</b> for the moment</p>
+        </section>
+        <section data-transition="fade">
+          <p> Let's start with the basics:</p>
           <p> ECC <b>public key</b> is a <b>point</b> in the curve</p>
           <p> ECC <b>private key</b> is an <b>integer</b></p>
           <p> The <b>curve</b> and the starting point <b>P</b> are also <b>public information</b> agreed by the parts</p>
         </section>
         <section data-transition="fade">
-          <p> Let's plot the following curve to explain step by step how to get to private key</p>
+          <p> Let's plot the following curve to explain step by step how to get to the private key</p>
           <p>  \[\begin{aligned}
                 \ y^{2} = x^{3} - 3x - 5
                 \end{aligned} \]
           </p>
-          <p>Consider the finite field of integers (mod p) a very big number so the process is easier to understand</p>
         </section>
         <section data-transition="fade">
           <img src="data:image/png;base64,{{ graph0|safe }}" height="700" width="700">
@@ -195,11 +206,64 @@
           </table>
         </section>
         <section data-transition="fade">
-          <p> To sum up, even knowing:</p>
-          <p> Elliptic Curve</p>
+          <p> <b>To sum up</b>, even knowing:</p>
+          <p> Elliptic Curve formula</p>
           <p> Initial point</p>
           <p> Final point</p>
           <p> Private key could have several values and this provides <b>security</b> to the cryptosystem</p>
+        </section>
+        <section data-transition="fade">
+          <p> <b>ECC use cases</b></p>
+        </section>
+        <section data-transition="fade">
+          <p> Once you have generated the keys, you can use them on several Crypthographic protocols:</p>
+          <p> <b>Elliptic Curve Diffie-Hellman</b> (ECDH)</p>
+          <p> <b>Elliptic Curve Integrated Encryption Scheme</b> (ECIES) </p>
+          <p> <b>Elliptic Curve Digital Signature Algorithm</b> (ECDSA)</p>
+          <p>etc.</p>
+
+        </section>
+        <section data-transition="fade">
+          <p> <b>ECC benefits</b></p>
+        </section>
+        <section data-transition="fade">
+          <p>The use of ECC provides good <b>cost/performance</b> benefits compared to other methods such as RSA</p>
+          <p>RSA is reported to be <b>10 times slower</b> than ECC for private key operations</p>
+        </section>
+        <section data-transition="fade" data-state="table">
+          <p> ECC provides <b>similar</b> security levels with <b>shorter</b> keys</p>
+          <table>
+            <tr>
+              <td class="align"><b>RSA key size</b></td>
+              <td class="align"><b>ECC key size</b></td>
+            </tr>
+            <tr>
+              <td class="align">1024</td>
+              <td class="align">160</td>
+            </tr>
+            <tr>
+              <td class="align">2048</td>
+              <td class="align">224</td>
+            </tr>
+            <tr>
+              <td class="align">3072</td>
+              <td class="align">256</td>
+            </tr>
+            <tr>
+              <td class="align">7680</td>
+              <td class="align">384</td>
+            </tr>
+            <tr>
+              <td class="align">15360</td>
+              <td class="align">512</td>
+            </tr>
+          </table>
+        </section>
+        <section data-transition="fade">
+          <p> Some resources to go further on this:</p>
+          <p> <a href="https://en.wikipedia.org/wiki/Elliptic-curve_cryptography#Cryptographic_schemes" target="_blank">Wikipedia</a></p>
+          <p> <a href="https://fangpenlin.com/posts/2019/10/07/elliptic-curve-cryptography-explained/" target="_blank">Fang-Pen's site</a></p>
+          <p> <a href="https://www.redeszone.net/2019/04/30/rsa-vs-ecc-caracteristicas-diferencias/" target="_blank">RSA vs ECC</a></p>
         </section>
         <section data-transition="fade">
           <p> Thank you for your time</p>
